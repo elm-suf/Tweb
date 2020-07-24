@@ -1,0 +1,27 @@
+<div class="container" style="overflow: auto" ng-controller="profilo_ctrl">
+    <div class="card text-center">
+        <div class="card-header">Informazioni di profilo</div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-lg-5 my-auto d-none d-md-none d-lg-block">
+                    <img class="mx-auto" src="/img/user.png" alt="">
+                </div>
+                <form class="col-lg-6" name="dati">
+                    <label for="username">Username </label>
+                    <input type="text" class="form-control text-center" id="username"
+                           value={{us_profilo}} readonly><br>
+                    <label for="password">Password</label>
+                    <input type="text" class="form-control text-center" id="password"
+                           value={{pas_profilo}} readonly><br>
+                    <label for="nome">Nome</label>
+                    <input type="text" class="form-control text-center" id="nome"
+                           value={{nome_profilo}} readonly><br>
+                    <label for="cognome">Cognome</label>
+                    <input type="text" class="form-control text-center" id="cognome"
+                           value={{cogn_profilo}} readonly>
+                </form>
+            </div>
+        </div>
+        <div class="card-footer text-muted"></div>
+    </div>
+</div>

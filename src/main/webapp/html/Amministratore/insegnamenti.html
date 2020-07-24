@@ -1,0 +1,33 @@
+<div class="container">
+    <h1 class="page-header">Elenco Insegnamenti</h1>
+    <hr style="margin-top: 0;">
+    <br>
+    <ul style="padding-left: 0">
+
+        <div class="container" style="overflow: auto" ng-controller="insegnamenti_ctrl" ng-cloak>
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Corso</th>
+                    <th scope="col">Docente</th>
+                    <th scope="col"></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="x in tabella" ng-init="index=1">
+                    <th scope="row">{{tabella.indexOf(x)}}</th>
+                    <td>{{x.corso}}</td>
+                    <td>{{x.docente}}</td>
+                    <td>
+                        <md-button class="md-raised md-warn" style="background-color: red"
+                                   ng-click="elimina(x, $event)">
+                            Elimina
+                        </md-button>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </ul>
+</div>

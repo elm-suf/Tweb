@@ -1,0 +1,38 @@
+<div class="container" style="overflow: auto">
+    <h1 class="page-header">Inserisci Docente</h1>
+    <hr>
+    <br>
+    <div class="row">
+        <form class="col-xs-12 col-sm-8 col-md-6 col-lg-6" role="form">
+            <label>Username</label>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1">@</span>
+                </div>
+                <input id="username" type="text" class="form-control" placeholder="Es: LiliArdi"
+                       aria-label="Username" aria-describedby="basic-addon1">
+            </div>
+
+            <div class="form-group">
+                <label>Password</label>
+                <input class="form-control" id="password">
+            </div>
+            <div class="form-group">
+                <label>Nome</label>
+                <input class="form-control" id="nome">
+            </div>
+            <div class="form-group">
+                <label>Cognome</label>
+                <input class="form-control" id="cognome">
+            </div>
+            <div class="form-group text-center">
+                <button id="insert-docente" onclick="insertDocente()" type="submit"
+                        class="btn btn-theme btn-lg btn-block">Inserisci
+                </button>
+            </div>
+        </form>
+        <div class="col-lg-6 my-auto text-center d-none d-md-none d-lg-block">
+            <i class="fa fa-chalkboard-teacher big-icon d-block mx-auto"></i>
+        </div>
+    </div>
+</div>

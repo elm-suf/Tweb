@@ -1,0 +1,50 @@
+<div class="container" style="overflow: auto" ng-cloak>
+    <h1 class="page-header">Cerca Ripetizione</h1>
+    <hr>
+    <br>
+    <div ng-app="moduloCeraMateria">
+        <div ng-controller="cercaMateriaCtrl">
+
+            <div class="row mb-5 ml-2 mr-2">
+                <input class="form-control col-8" ng-model="inputcorso" type="text"
+                       placeholder="corso di interesse">
+                <input class="form-control col-4" type="button" ng-click="getInsegnanti()" value="Cerca">
+            </div>
+
+            <hr class="my-4">
+
+            <div class="card" ng-repeat="docente in elenco" ng-controller="prenotaCtrl">
+
+                <div class="col-md-12 bg-light">
+                    <div class="row my-3">
+                        <input ng-model="inputdata" placeholder="selezionare data" class="col" type="date">
+                        <button class="btn btn-primary float-right col" ng-click="mostraDisponibilita(docente)">
+                            Mostra
+                            disponibilita
+                        </button>
+                    </div>
+                </div>
+
+
+                <div class="card">
+                    <div class="col-md-12 bg-light">
+                        <div class="row my-3">
+                            <img class="rounded-circle d-sm-none d-md-block ml-3 mt-3"
+                                 src="https://proxy.duckduckgo.com/iu/?u=http%3A%2F%2Fwww.sammilanimahavidyalaya.org%2Fwp-content%2Fuploads%2F2016%2F01%2Fstudent-icon.png&f=1"
+                                 alt="Generic placeholder image" width="140" height="140">
+                            <h2 class="my-auto mx-auto ml-6">{{docente.username}}</h2>
+                        </div>
+                        <div class="row">
+                            <!--<button ng-repeat="item in disponibili" class="btn btn-success col-3" type="button"-->
+                            <!--ng-click="effettuaPrenotazione(item)">-->
+                            <button ng-repeat="item in disponibili" ng-click="effettuaPrenotazione(item)"
+                                    type="button" class="btn btn-success col-sm-6 col-md-3  my-3 mx-auto p-1">
+                                {{item}}
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

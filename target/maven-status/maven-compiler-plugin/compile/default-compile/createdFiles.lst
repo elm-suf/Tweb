@@ -1,0 +1,14 @@
+pojo\Studente.class
+dao\PrenotazioneDAO.class
+pojo\Docente.class
+pojo\Insegnamento.class
+pojo\Corso.class
+dao\StudenteDAO.class
+dao\InsegnamentoDAO.class
+dao\CorsoDAO.class
+pojo\Prenotazione.class
+dao\AmministratoreDAO.class
+dao\DocenteDAO.class
+pojo\Amministratore.class
+Controller.class
+connection\DBConnection.class
