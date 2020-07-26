@@ -1,6 +1,9 @@
 const routes = [
     {path: "/home", component: AdminHome},
     {path: "/studenti", component: TabStudenti},
+    {path: "/docenti", component: TabDocenti},
+    {path: "/corsi", component: TabCorsi},
+    {path: "/prenotazioni", component: TabPrenotazioni},
     // { path: "/cerca", component: Search },
 ];
 

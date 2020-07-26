@@ -10,6 +10,20 @@ public class Prenotazione {
     private String stato;
     private String data;
 
+    @Override
+    public String toString() {
+        return "Prenotazione{" +
+                "id=" + id +
+                ", studente='" + studente + '\'' +
+                ", docente='" + docente + '\'' +
+                ", corso='" + corso + '\'' +
+                ", idInsegnamento=" + idInsegnamento +
+                ", slot='" + slot + '\'' +
+                ", stato='" + stato + '\'' +
+                ", data='" + data + '\'' +
+                '}';
+    }
+
     public Prenotazione(){}
 
     public Prenotazione(String studente, String docente, String corso, int idInsegnamento, String slot, String stato, String data){

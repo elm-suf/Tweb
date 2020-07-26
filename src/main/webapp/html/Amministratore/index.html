@@ -28,13 +28,13 @@
                     <router-link class="nav-link" to='/studenti'>Studenti</router-link>
                 </li>
                 <li class="nav-item active">
-                    <router-link class="nav-link" to='/profile'>Docenti</router-link>
+                    <router-link class="nav-link" to='/docenti'>Docenti</router-link>
                 </li>
                 <li class="nav-item active">
-                    <router-link class="nav-link" to='/profile'>Corsi</router-link>
+                    <router-link class="nav-link" to='/corsi'>Corsi</router-link>
                 </li>
                 <li class="nav-item active">
-                    <router-link class="nav-link" to='/profile'>Prenotazioni</router-link>
+                    <router-link class="nav-link" to='/prenotazioni'>Prenotazioni</router-link>
                 </li>
             </ul>
             <button v-if="user" @click="logout" class="btn btn-danger my-2 my-sm-0" type="submit">Logout</button>
@@ -66,6 +66,9 @@
 
 <script src="admin-home.vue.js"></script>
 <script src="studenti.vue.js"></script>
+<script src="docenti.vue.js"></script>
+<script src="corsi.vue.js"></script>
+<script src="prenotazioni.vue.js"></script>
 <script src="admin-app.js"></script>
 </body>
 </html>
