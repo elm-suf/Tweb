@@ -1,7 +1,8 @@
 const TabDocenti = Vue.component("app-docenti", {
     template: `
+<main class="container-fluid">
 
-<main class="card">
+<h2>Docenti</h2>
     <table class="table">
       <thead class="thead-dark">
             <tr>

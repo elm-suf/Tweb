@@ -1,5 +1,4 @@
 const routes = [
-    {path: "/home", component: AdminHome},
     {path: "/studenti", component: TabStudenti},
     {path: "/docenti", component: TabDocenti},
     {path: "/corsi", component: TabCorsi},
@@ -18,7 +17,7 @@ var app = new Vue({
         user: null
     }),
     created() {
-        router.push('/home')
+        router.push('/studenti')
         const url = 'http://localhost:8080/controller?action=check_login'
         axios.post(url).then(data => {
             this.user = data.data

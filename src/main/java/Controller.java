@@ -190,11 +190,11 @@ public class Controller extends HttpServlet {
 
             case "insert_prenotazione":
                 studente = req.getParameter("studente");
-                slot = req.getParameter("slot");
+                slot = req.getParameter(    "slot");
                 docente = req.getParameter("docente");
-                corso = req.getParameter("corso");
-                data = req.getParameter("data");
-                stato = req.getParameter("stato");
+                corso = req.getParameter(   "corso");
+                data = req.getParameter(    "data");
+                stato = req.getParameter(   "stato");
                 System.out.println("slot: " + slot + " data: " + data);
 
                 try {

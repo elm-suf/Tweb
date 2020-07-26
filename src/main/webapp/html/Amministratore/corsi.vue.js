@@ -1,7 +1,8 @@
 const TabCorsi = Vue.component("app-corsi", {
     template: `
 
-<main class="card">
+<main class="container-fluid">
+<h2>Corsi</h2>
     <table class="table">
       <thead class="thead-dark">
             <tr>

@@ -1,6 +1,7 @@
 const TabStudenti = Vue.component("app-profile", {
     template: `
-<main class="card">
+<main class="container-fluid">
+<h2>Studenti</h2>
     <table class="table">
       <thead class="thead-dark">
             <tr>
