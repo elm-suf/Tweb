@@ -18,22 +18,19 @@ import java.util.List;
 public class Controller extends HttpServlet {
 
     private void processRequest(HttpServletRequest req, HttpServletResponse res) throws IOException {
-//        res.setContentType("text/html;charset=UTF-8");
         String action = req.getParameter("action");
         PrintWriter out = res.getWriter();
         Gson gson = new Gson();
         String username, password, nome, cognome, titolo, docente, data, stato, slot, corso;
         HttpSession s = req.getSession();
 
-        if(!action.equals("login")){
-            String tmp = (String) s.getAttribute("username");
-            if (tmp == null || tmp.isEmpty()) {
-                res.sendError(503, "not logged in");
-                return;
-            }
-        }
 
         switch (action) {
+            case "check_login":
+                res.setContentType("application/json");
+                out.println(s.getAttribute("username"));
+                break;
+
             case "login":
                 s = req.getSession(true);
                 username = req.getParameter("username");
@@ -45,11 +42,11 @@ public class Controller extends HttpServlet {
                         res.sendRedirect("/html/Amministratore/index.html");
                         s.setAttribute("nome", AmministratoreDAO.getName(username));
                         s.setAttribute("cognome", AmministratoreDAO.getSurname(username));
-                    }else if (StudenteDAO.exists(username) && StudenteDAO.checkPassword(username, password)) {
+                    } else if (StudenteDAO.exists(username) && StudenteDAO.checkPassword(username, password)) {
                         res.sendRedirect("/html/Studente/index.html");
                         s.setAttribute("nome", StudenteDAO.getName(username));
                         s.setAttribute("cognome", StudenteDAO.getSurname(username));
-                    }else
+                    } else
                         res.sendRedirect("/html/login-register.html");
                 } catch (SQLException e) {
                     System.out.println(e.getMessage());
@@ -182,9 +179,7 @@ public class Controller extends HttpServlet {
                     try {
                         int idInsegnamento = InsegnamentoDAO.getIdInsegnamento(corso, docente);
                         Prenotazione p = new Prenotazione(studente, docente, corso, idInsegnamento, slot, stato, data);
-
-//                        out.println(gson.toJson(p));
-
+                        System.out.println(p);
                         int status = PrenotazioneDAO.insert(p);
                         if (status < 1) res.sendError(500, "0 rows affected");
                     } catch (SQLException e) {
@@ -200,7 +195,7 @@ public class Controller extends HttpServlet {
                 corso = req.getParameter("corso");
                 data = req.getParameter("data");
                 stato = req.getParameter("stato");
-                System.out.println("slot: " +slot+ " data: " +data);
+                System.out.println("slot: " + slot + " data: " + data);
 
                 try {
                     int idInsegnamento = InsegnamentoDAO.getIdInsegnamento(corso, docente);
@@ -332,14 +327,15 @@ public class Controller extends HttpServlet {
                 break;
 
             case "register":
-                System.out.println("registraaaaaaaa");
                 username = req.getParameter("username");
                 password = req.getParameter("password");
                 nome = req.getParameter("nome");
                 cognome = req.getParameter("cognome");
                 try {
-                    if(StudenteDAO.insert(new Studente(username,password,nome,cognome))>0){
-                        res.sendRedirect("/index.html");
+                    if (StudenteDAO.insert(new Studente(username, password, nome, cognome)) > 0) {
+                        s.setAttribute("username", req.getParameter("username"));
+                        s.setAttribute("password", req.getParameter("password"));
+                        res.sendRedirect("/html/Studente/index.html");
                     } else {
                         res.sendError(503, "try again");
                     }
@@ -352,7 +348,7 @@ public class Controller extends HttpServlet {
                 res.setContentType("application/json");
                 try {
                     String us = (String) s.getAttribute("username");
-                    if(StudenteDAO.exists(us))
+                    if (StudenteDAO.exists(us))
                         out.println(gson.toJson(StudenteDAO.getOne(us)));
                     else
                         out.println(gson.toJson(AmministratoreDAO.getOne(us)));

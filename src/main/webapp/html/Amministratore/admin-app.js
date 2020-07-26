@@ -1,11 +1,11 @@
 const routes = [
-    {path: "/home", component: HomepageComponent},
-    {path: "/profile", component: ProfileComponent},
+    {path: "/home", component: AdminHome},
+    {path: "/studenti", component: TabStudenti},
     // { path: "/cerca", component: Search },
 ];
 
 const router = new VueRouter({
-    routes, // short for `routes: routes`
+    routes,
 });
 
 var app = new Vue({
